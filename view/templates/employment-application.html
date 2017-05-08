@@ -1,0 +1,82 @@
+<form class="login2" name="employmentApp" ng-submit="appCtrl.appManagement()" novalidate>
+  <div class="container well">
+    <div class="form-horizontal" >
+      <!--
+      <div>passwordValid:{{passwordValid}} userManagement.$invalid: {{userManagement.$invalid}}</div>
+    -->
+    <div class="row" ng-show="appOption == 1">
+      <div class="col-xs-12"><h2>Request your wished job</h2></div>
+    </div>
+    <br/>
+    <div class="form-group">
+
+      <label class="col-sm-2 control-label" for="formGroup">Position:</label>
+      <div class="col-sm-4">
+        <select class="" name="" ng-model="app.position" ng-options="item in positions">
+
+        </select>
+      </div>
+      <label class="col-sm-2 control-label" for="formGroup">Start data:</label>
+      <div class="col-sm-4">
+					<p class="input-group">
+						<input type="text" class="form-control" id="startDate"
+						uib-datepicker-popup="{{format}}"
+						is-open="startDate.opened"
+						datepicker-options="dateOptions"
+						alt-input-formats="altInputFormats"
+						close-text="Close"
+						ng-required="true"
+						ng-model="app.startDate"
+						readonly/>
+						<span class="input-group-btn">
+							<button type="button" class="btn btn-default" ng-click="openStartDate()"><i class="glyphicon glyphicon-calendar"></i></button>
+						</span>
+					</p>
+				</div>
+      <label class="col-sm-2 control-label" for="formGroup">Web:</label>
+      <div class="col-sm-4">
+        <input class="form-control" type="text" id="web" ng-model="app.web" required/>
+      </div>
+      <label class="col-sm-2 control-label" for="formGroup">Salary: </label>
+      <div class="col-sm-4">
+        <input class="form-control" type="number" ng-model="app.salary" name="salary" min="1000" max="500000" required/>
+      </div>
+      <label class="col-sm-2 control-label" for="formGroup">Hobbies: </label>
+      <div class="col-sm-4">
+        <input class="form-control" id="hobb" type="text" ng-model="app.hobbies" name="hobb" required ng-change="userCtrl.checkPassword()"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label" for="formGroup">Relocate :</label>
+      <div class="col-sm-4">
+        <form >
+          <input type="redio" ng-model="app.relocate" name="relocate" value="Yes">
+          <input type="redio" ng-model="app.relocate" name="relocate" value="No">
+        </form>
+
+      </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label" for="formGroup">Reasons:</label>
+      <div class="col-sm-4">
+        <input class="form-control" type="textarea"ng-model="app.reasons" required />
+      </div>
+    </div>
+
+
+    <br />
+    <div class="form-group">
+      <label class="col-sm-2 control-label" for="formGroup"></label>
+      <div class="col-sm-4">
+        <button ng-disabled="employmentApp.$invalid" class="btn btn-success">
+          Submit
+        </button>
+      </div>
+      <div class="form-group col-sm-6">
+        <label>
+          <input class="btn btn-default btn-primary btn-block" type="button" value="Back" ng-click="userOption = 0">
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+</form>
