@@ -38,7 +38,6 @@
   <script src="js/controller/AppController.js" type="text/javascript" xml:space="preserve"></script>
   <script src="js/controller/SessionController.js" type="text/javascript" xml:space="preserve"></script>
   <script src="js/controller/UserController.js" type="text/javascript" xml:space="preserve"></script>
-  <!--<script src="js/controller/FilmController.js" type="text/javascript" xml:space="preserve"></script>-->
 </head>
 <body ng-show="sessionOpened" class="container" ng-controller="SessionController as sessionCtrl" ng-init="userAction=1;sessionCtrl.sessionControl()">
   <div>
@@ -50,21 +49,16 @@
       <h3>If want continue select the option:</h3><br/>
       <a href="#" ng-show="rol==user" ng-click="appOption=1">Request job</a>
       <a href="#" ng-show="rol==admin" ng-click="appOption=2">See reviews</a>
-      <!--<input type="radio" name="filmOptions" id="filmEntry" ng-click="shomForm=1"/> Film entry
-      <br/>
-      <input type="radio" name="filmOptions" id="filmModify" ng-click="shomForm=2;filmCtrl.loadFilms()"/> Film modification
-      <br/>
-      <input type="radio" name="filmOptions" id="filmCancel" /> Film cancellation
-      <br/>-->
-    </div>
-    <div>
-      <films-entry-form ng-show="shomForm==1"></films-entry-form>
-      <films-mod-form ng-show="shomForm==2"></films-mod-form>
     </div>
 
   <div ng-show="appOption==1">
     <employment-application></employment-application>
   </div>
+  
+  <div ng-show="appOption==2">
+    <review-management></review-management>
+  </div>
+
   <div id="foot">
     <button class="btn btn-primary pull-left" onclick="location.reload()">Reload</button>
     <button class="btn btn-primary pull-left" ng-click="sessionCtrl.logOut()">Log out</button>

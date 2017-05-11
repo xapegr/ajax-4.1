@@ -1,7 +1,6 @@
 <?php
 	require_once "UserControllerClass.php";
 	require_once "AppControllerClass.php";
-	require_once "FileControllerClass.php";
 
 	function is_session_started()
 	{
