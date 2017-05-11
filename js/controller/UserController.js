@@ -3,13 +3,17 @@
 	angular.module('company').controller("UserController", ['$http','$scope', '$window', '$cookies','accessService', 'userConnected',function ($http, $scope, $window, $cookies, accessService, userConnected){
 
 		//scope variables
-		if(userConnected.user != undefined)
+		/*if(userConnected.user != undefined)
 		{
 			$scope.user = userConnected.user;
 		}
 		else {
 			$scope.user = new User();
-		}
+			//$scope.user.rol = 'admin';
+		}*/
+		//TODO siempre hace uno nuevo
+		//TODO copiar session control
+		$scope.user = new User();
 
 		$scope.userOption=0;
 
@@ -38,23 +42,26 @@
 		{
 			//copy
 			$scope.user = angular.copy($scope.user);
-			console.log($scope.user);
+			//alert("conecting " + $scope.user.nick);
+			//console.log("hola "+$scope.user);
 
 			//Server conenction to verify user's data
 			var promise = accessService.getData("php/controllers/MainController.php",
       true, "POST", {controllerType: 0, action: 10000, jsonData: JSON.stringify($scope.user)});
 
 			promise.then(function (outputData) {
+				alert(outputData);
+				console.log(outputData);
 				if(outputData[0] === true) {
           //User correcte, mainWindow is opened
-					console.log($scope.user);
-          window.open("mainWindow.html", "_self");
+
+          //window.open("mainWindow.html", "_self");
 				}
 				else
 				{
 					if(angular.isArray(outputData[1]))
 					{
-						console.log(outputData);
+						//console.log(outputData);
 					}
 					else {alert("There has been an error in the server, try later(in usercontroller js)");}
 				}

@@ -23,8 +23,8 @@ class DBConnect{
 
       $this->server='localhost';
       $this->dataBase='company';
-      $this->user='root';
-      $this->password='alumne';
+      $this->user='dax';
+      $this->password='dax';
    }
 
    /*Evitem el clonatge de l'obejcte: Patró Singleton*/

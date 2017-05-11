@@ -14,8 +14,12 @@ SET time_zone = "+00:00";
 --
 -- Database: `company`
 --
+drop database company;
 create database company;
 use company;
+
+CREATE USER 'dax'@'localhost' IDENTIFIED BY 'dax';
+GRANT ALL PRIVILEGES ON * . * TO 'dax'@'localhost';
 -- --------------------------------------------------------
 
 --
@@ -88,6 +92,7 @@ INSERT INTO `users` (`id`, `name`, `surname1`, `nick`, `password`, `rol`, `addre
 (1, 'Jhon', 'Peterson', 'user1', '123456', 'user', 'Address1', 933333333, 'r1@r.com', '1975-01-01', '2014-01-01', '0000-00-00', 1, 'images/usersImages/user1.jpeg'),
 (2, 'Jhon1', 'Peterson1', 'user2', '123456', 'admin', 'Address2', 933333333, 'r2@r.com', '1975-01-01', '2014-01-01', '0000-00-00', 1, 'images/usersImages/user2.jpeg'),
 (3, 'Jhon2', 'Peterson2', 'user3', '123456', 'user', 'Address3', 933333333, 'r3@r.com', '1975-01-01', '2014-01-01', '0000-00-00', 1, 'images/usersImages/user3.jpeg');
+(4, 'pedro', 'pedrp', 'admin', '123456', 'admin', 'Address3', 933333333, 'r3@r.com', '1975-01-01', '2014-01-01', '0000-00-00', 0, 'images/usersImages/user3.jpeg');
 
 --
 -- Indexes for dumped tables
