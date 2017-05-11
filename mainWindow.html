@@ -27,9 +27,7 @@
 
   <!-- Own code-->
   <!-- Model-->
-  <script src="js/model/Director.js" type="text/javascript" xml:space="preserve"></script>
-  <script src="js/model/FilmType.js" type="text/javascript" xml:space="preserve"></script>
-  <script src="js/model/Film.js" type="text/javascript" xml:space="preserve"></script>
+
   <script src="js/model/Review.js" type="text/javascript" xml:space="preserve"></script>
   <script src="js/model/User.js" type="text/javascript" xml:space="preserve"></script>
   <script src="js/model/Application.js" type="text/javascript" xml:space="preserve"></script>
@@ -44,18 +42,23 @@
     <img src="images/logo.jpg" id='logo' width="300" height="240" />
   </div>
   <h1>Welcome to the real company</h1>
-  <div ng-controller="AppController as appCtrl" ng-show="$parent.userAction==1">
+
+  <div ng-controller="AppController as appCtrl">
+  </div>
+
+  <div ng-controller="UserController as usrCtrl" ng-show="$parent.userAction==1">
     <div id="mainMenuFilms">
       <h3>If want continue select the option:</h3><br/>
-      <a href="#" ng-show="rol==user" ng-click="appOption=1">Request job</a>
-      <a href="#" ng-show="rol==admin" ng-click="appOption=2">See reviews</a>
+      <a href="#" ng-show="user.rol=='user'" ng-click="userOption=1">Request job</a>
+      <a href="#" ng-show="user.rol=='admin'" ng-click="userOption=2">See reviews</a>
+      <p>{{user.rol}}</p>
     </div>
 
-  <div ng-show="appOption==1">
+  <div ng-show="userOption==1">
     <employment-application></employment-application>
   </div>
-  
-  <div ng-show="appOption==2">
+
+  <div ng-show="userOption==2">
     <review-management></review-management>
   </div>
 
@@ -65,5 +68,6 @@
     <strong>Company of bosses</strong>
   </div>
   </div>
+
 </body>
 </html>
